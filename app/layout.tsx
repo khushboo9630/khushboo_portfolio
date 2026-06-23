@@ -1,19 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
 import CustomCursor from "./components/CustomCursor";
 import AnimatedBackground from "./components/AnimatedBackground";
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Khushboo Upadhyay | AI & Full Stack Developer",
@@ -27,18 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
-    >
-     <body className="min-h-screen text-white overflow-x-hidden">
-
-  <AnimatedBackground />
-  <CustomCursor />
-
-  {children}
-
-</body>
+    <html lang="en" className="scroll-smooth">
+      <body className="min-h-screen text-white overflow-x-hidden">
+        <AnimatedBackground />
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
